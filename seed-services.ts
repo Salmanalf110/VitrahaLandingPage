@@ -168,6 +168,7 @@ async function seed() {
   for (const svc of services) {
     await payload.create({
       collection: 'services',
+      // @ts-ignore
       data: svc,
     })
   }

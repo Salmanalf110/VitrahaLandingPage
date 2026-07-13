@@ -133,6 +133,7 @@ async function seed() {
   for (const job of jobs) {
     await payload.create({
       collection: 'job-postings',
+      // @ts-ignore
       data: job,
     })
   }
