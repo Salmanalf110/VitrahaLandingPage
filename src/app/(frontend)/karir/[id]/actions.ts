@@ -56,7 +56,7 @@ export async function submitJobApplication(prevState: any, formData: FormData) {
     await payload.create({
       collection: 'job-applications',
       data: {
-        lowongan: jobId,
+        lowongan: Number(jobId),
         namaPelamar,
         email,
         fileCV: media.id,
