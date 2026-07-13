@@ -18,6 +18,8 @@ import { CompanyProfile } from './globals/CompanyProfile'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -43,5 +45,12 @@ export default buildConfig({
     fallback: true,
     defaultLocale: 'en',
   },
-  plugins: [],
+  plugins: [
+    vercelBlobStorage({
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
+  ],
 })
