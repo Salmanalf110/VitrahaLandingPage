@@ -62,7 +62,7 @@ export default async function JobDetailPage(props: { params: Promise<{ id: strin
                   return <p key={idx} className="mb-4">{node.children?.map((c: any) => c.text).join('')}</p>
                 }
                 if (node.type === 'heading') {
-                  const H = node.tag as keyof JSX.IntrinsicElements
+                  const H = node.tag as any
                   return <H key={idx} className="font-bold text-slate-800 mt-8 mb-4">{node.children?.map((c: any) => c.text).join('')}</H>
                 }
                 if (node.type === 'list') {
